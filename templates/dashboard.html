@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}This is your dashboard{% endblock %}
+
+{% block content %}
+
+		<h1>Welcome back {{ username }}</h1>
+
+		<div class="dashboard">
+			<table class="table table-hover">
+			  <thead>
+			    <tr>
+			      <th>Idea name</th>
+			      <th>Brief description</th>
+			      <th>Status</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			 	
+			  {% for idea in ideas  %}
+			   <tr>
+				<td>{{ idea[0] }}</td>
+				<td>{{ idea[1] }}</td>
+					{% if idea[2] == 0 %}
+						<td style="color:grey;">Processing</td>
+					{% elif idea[2] == 1 %}
+						<td style="color:green;">Accepted</td>
+					{% elif idea[2] == 2 %}
+						<td style="color:red;">Rejected</td> 
+					{% endif %}
+				</tr>
+			 {% endfor %}
+
+			  </tbody>
+			</table>
+		</div>
+
+
+		
+		
+		<a href="{{ url_for('logout') }}"><button class="btn btn-default">Logout</button></a>
+		<a href="{{ url_for('add_idea') }}"><button class="btn btn-primary">Add another Idea</button></a>
+{% endblock %}

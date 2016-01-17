@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Welcome Admin{% endblock %}
+
+
+{% block content%}
+	<h1>Welcome back {{ admin }}</h1>
+	<p>These are all the ideas</p>
+	
+		<div class="dashboard">
+			<table class="table table-hover">
+			  <thead>
+			    <tr>
+			      <th>Idea name</th>
+			      <th>Brief description</th>
+			      <th>Status</th>
+			      <th>Action</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			 	
+			  {% for idea in ideas  %}
+			   	<tr>
+					<td>{{ idea[1] }}</td>
+					<td>{{ idea[2] }}</td>
+					{% if idea[5] == 0 %}
+						<td style="color:grey;">Processing</td>
+					{% elif idea[5] == 1 %}
+						<td style="color:green;">Accepted</td>
+					{% elif idea[5] == 2 %}
+						<td style="color:red">Rejected</td>
+					{% endif %}
+					<td><a href="{{ url_for('check_idea', idea = idea[0] ) }}"><button class="btn btn-primary">Check</button></a></td>
+				</tr>
+			 {% endfor %}
+
+			  </tbody>
+			</table>
+		</div>
+
+{% endblock %}

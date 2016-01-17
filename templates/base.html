@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.css') }}">
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="{{ url_for('welcome') }}">
+	        piracha
+	      </a>
+
+
+	    </div>
+
+	    <ul class="nav navbar-nav navbar-right">
+	    	{% if not session['username'] %}
+        		<li><a href="{{ url_for('login') }}">Login</a></li>
+        		<li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+        	{% else %}
+        		<li><a href="{{ url_for('logout') }}">Logout</a></li>
+	    	{% endif %}
+      	</ul>
+	  </div>
+	</nav>
+
+
+
+	<div class="container-fluid">
+	  <div class="center-page ">
+
+	  	<div class="alert alert-danger" id="alert" style="display:none;">
+	  		Please fill all the fields
+	  	</div>
+	  	{% with messages = get_flashed_messages() %}
+		  {% if messages %}
+		  <div class="alert alert-success">
+		    <ul>
+		    {% for message in messages %}
+		      <li>{{ message }}</li>
+		    {% endfor %}
+		    </ul>
+		   </div>
+		  {% endif %}
+		{% endwith %}
+	  	{% block content %}{% endblock %}
+	  </div>
+	</div>
+	 
+	 <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+	 <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+	 <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

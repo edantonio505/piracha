@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}sign up{% endblock %}
+
+{% block content %}
+
+	<div class="form_box space_top">
+		<div>
+			<a href="{{ url_for('welcome') }}"><button class="btn btn-primary">nevermind</button></a>
+			<h1>Here is where you signup</h1>
+			<form action="{{ url_for('signup') }}" method="POST" autocomplete="off">
+				<div class="input">	
+			    	<input type="text" id="username" class="form-control" name="username" placeholder="username" required>
+			    </div>
+			    <div class="input">
+			    	<input type="email" id="email" class="form-control" name="email" placeholder="email" required autocomplete="off">
+			   	</div>
+			    <div class="input">
+			    	<input type="password" id="password" class="form-control" name="password" placeholder="password" required autocomplete="off">
+			 	</div>
+				<input type="submit" id="submit" class="btn btn-primary btn-block" value="submit">
+			</form>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Add and idea{% endblock %}
+
+{% block content %}
+	
+	<div class="form_box space_top">
+
+	<div>
+	<h1>Add a new idea</h1>
+	<form action="{{ url_for('add_idea') }}" method="POST">
+		
+		<div class="input">
+			<p>Name:</p>
+			<input id="idea_name" class="form-control"type="text" name="idea" placeholder="name" required>
+		</div>
+		
+		<div class="input">
+			<p>Brief explanation:</p>
+			<input class="form-control" id="brief" type="text" name="brief" placeholder="brief description" required>
+		</div>
+		<div class="input">
+		<p>Description:</p>
+		<textarea class="form-control" id="description" name="description" placeholder="detailed description of your idea" required></textarea></div>
+		<input type="hidden" name="username" value="{{ username }}">
+		<div class="input"><input id="submit" type="submit" class="btn btn-primary btn-block" value="submit"></div>
+
+	</form>
+	</div>
+</div>
+{% endblock %}

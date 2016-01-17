@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}welcome{% endblock %}
+
+{% block content %}
+<div class="welcome_page center">
+
+	<h1>Welcome to piracha</h1>
+	<p>Do you have a great Idea for a web application or a mobile App but you dont have the resources or the skills to make it happen?</p>
+	<p>Then this is your oportunity.<br/>Submit your Idea and you can get a chance of making it a reality</p>
+
+	<br>
+	{% if not session %}
+	<a href="{{ url_for('signup') }}"><button class="btn btn-primary call_to_action btn-lg">Signup</button></a>
+	{% else %}
+	<a href="{{ url_for('logout') }}"><button class="btn btn-default">Logout</button></a>
+	{% endif %}
+</div>
+{% endblock %}

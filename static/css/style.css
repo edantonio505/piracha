@@ -1,0 +1,60 @@
+body {
+	padding:0;
+	margin:0;
+	background-color: #eee;
+}
+
+.center-page {
+	width:900px;
+	margin:0 auto;
+	margin-top: 70px;
+}
+.center {
+	text-align:center;
+}
+.welcome_page {
+	margin-top: 20%;
+}
+
+.form_box {
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 8px;
+	max-width: 700px;
+	height:100%;
+	margin: 0 auto;
+	border-color:#ccc;
+	background-color: white;
+}
+.form_box div{
+	padding:20px;
+}
+.form_box .input {
+	width: 100%;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+.form_box .btn-block {
+	max-width: 620px;
+	margin:0 auto;
+	margin-top: 5px;
+}
+.form_control textarea{
+	width:620px;
+
+}
+
+.dashboard {
+	width:100%; 
+	background-color:white; 
+	padding:10px; 
+	border-style:solid; 
+	border-width:1px; 
+	border-color:#ccc; 
+	margin-bottom:10px; 
+	border-radius:8px;
+}
+
+.call_to_action {
+	width:200px;
+}
